@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Smart Interview Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins', sans-serif;
+        }
+
+        body{
+            background: linear-gradient(135deg,#1e3c72,#2a5298);
+            overflow-x:hidden;
+            color:white;
+        }
+
+        /* Navbar */
+        nav{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:20px 60px;
+            background:rgba(0,0,0,0.3);
+            backdrop-filter:blur(10px);
+        }
+
+        nav h1{
+            font-size:28px;
+            font-weight:700;
+            letter-spacing:1px;
+        }
+
+        nav .buttons button{
+            margin-left:15px;
+            padding:10px 20px;
+            border:none;
+            border-radius:25px;
+            cursor:pointer;
+            font-weight:500;
+            transition:0.3s;
+        }
+
+        .login-btn{
+            background:white;
+            color:#2a5298;
+        }
+
+        .register-btn{
+            background:#ffcc00;
+            color:black;
+        }
+
+        nav button:hover{
+            transform:scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            padding:80px 10%;
+            min-height:90vh;
+        }
+
+        .hero-text{
+            max-width:600px;
+        }
+
+        .hero-text h2{
+            font-size:48px;
+            margin-bottom:20px;
+        }
+
+        .hero-text p{
+            font-size:18px;
+            line-height:1.6;
+            margin-bottom:30px;
+        }
+
+        .hero-text button{
+            padding:12px 25px;
+            border:none;
+            border-radius:30px;
+            background:#ffcc00;
+            color:black;
+            font-weight:600;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .hero-text button:hover{
+            background:white;
+        }
+
+       .hero-image img{
+           width:500px;
+           max-width:100%;
+           animation:float 4s ease-in-out infinite;
+
+        }
+
+        @keyframes float{
+            0%{transform:translateY(0px);}
+            50%{transform:translateY(-20px);}
+            100%{transform:translateY(0px);}
+        }
+
+        /* Features Section */
+        .features{
+            text-align:center;
+            padding:60px 10%;
+            background:white;
+            color:black;
+        }
+
+        .features h3{
+            font-size:32px;
+            margin-bottom:40px;
+        }
+
+        .feature-box{
+            display:flex;
+            justify-content:space-around;
+            flex-wrap:wrap;
+        }
+
+        .card{
+            background:#f4f4f4;
+            width:300px;
+            padding:25px;
+            margin:15px;
+            border-radius:15px;
+            transition:0.3s;
+            box-shadow:0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .card:hover{
+            transform:translateY(-10px);
+            background:#2a5298;
+            color:white;
+        }
+
+        footer{
+            text-align:center;
+            padding:20px;
+            background:#1e3c72;
+        }
+
+        /* Responsive */
+        @media(max-width:900px){
+            .hero{
+                flex-direction:column;
+                text-align:center;
+            }
+
+            .hero-image img{
+                width:300px;
+                margin-top:40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <h1>AI Smart Interview Portal</h1>
+        <div class="buttons">
+            <button class="login-btn" onclick="login()">Login</button>
+            <button class="register-btn" onclick="register()">Register</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h2>Prepare Smarter. Get Hired Faster.</h2>
+            <p>
+                Boost your career with AI-powered mock interviews, resume analysis,
+                performance tracking, and personalized feedback.
+            </p>
+            <button onclick="register()">Get Started</button>
+        </div>
+
+        <div class="hero-image">
+          <img src="interview.png" alt="Employee Attending Online Interview">
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <h3>Why Choose Us?</h3>
+        <div class="feature-box">
+            <div class="card">
+                <h4>AI Mock Interviews</h4>
+                <p>Practice real interview questions with AI-generated feedback.</p>
+            </div>
+            <div class="card">
+                <h4>Resume Analysis</h4>
+                <p>Get instant resume scoring and improvement suggestions.</p>
+            </div>
+            <div class="card">
+                <h4>Performance Tracking</h4>
+                <p>Track your improvement with detailed analytics and reports.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 AI Smart Interview Portal | All Rights Reserved
+    </footer>
+
+    <script>
+        function login(){
+            alert("Redirecting to Login Page...");
+            // window.location.href = "login.html";
+        }
+
+        function register(){
+            alert("Redirecting to Register Page...");
+            // window.location.href = "register.html";
+        }
+
+        // Simple animation on scroll
+        window.addEventListener("scroll", function(){
+            const cards = document.querySelectorAll(".card");
+            cards.forEach(card => {
+                const position = card.getBoundingClientRect().top;
+                const screenHeight = window.innerHeight;
+                if(position < screenHeight - 100){
+                    card.style.opacity = 1;
+                    card.style.transform = "translateY(0)";
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
