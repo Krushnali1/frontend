@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<style>
+body{
+font-family:Poppins;
+background:linear-gradient(135deg,#141e30,#243b55);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.box{
+background:white;
+padding:30px;
+width:400px;
+border-radius:10px;
+}
+
+input{
+width:100%;
+padding:8px;
+margin:10px 0;
+}
+
+button{
+width:100%;
+padding:10px;
+background:#2a5298;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+.message{text-align:center;margin-top:10px;font-weight:bold;}
+</style>
+</head>
+<body>
+
+<div class="box">
+<h2>Login</h2>
+
+<input type="email" id="email" placeholder="Email">
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="loginUser()">Submit</button>
+<div class="message" id="msg"></div>
+</div>
+
+<script>
+function loginUser(){
+let email=document.getElementById("email").value;
+let password=document.getElementById("password").value;
+let storedUser=JSON.parse(localStorage.getItem("user"));
+
+if(!storedUser){
+document.getElementById("msg").innerHTML="No account found!";
+document.getElementById("msg").style.color="red";
+return;
+}
+
+if(email===storedUser.email && password===storedUser.password){
+document.getElementById("msg").innerHTML="Login Successful!";
+document.getElementById("msg").style.color="green";
+}
+else{
+document.getElementById("msg").innerHTML="Invalid Email or Password!";
+document.getElementById("msg").style.color="red";
+}
+}
+</script>
+
+</body>
+</html>
